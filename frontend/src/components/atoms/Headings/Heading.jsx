@@ -9,5 +9,9 @@ const PrimaryHeading = ({ typo }) => {
   const SecondaryHeading = ({ typo }) => {
     return <div className="Ciutadella text-[#101B33] font-semibold text-[32px] leading-[33px] text-center sm:text-left">{typo}</div>;
   };
+
+  const CountsHeading = ({ typo }) => {
+    return <div className="Ciutadella text-[#38393A] font-[400] text-[14px] text-center sm:text-left">{typo}</div>;
+  };
   
-  export { PrimaryHeading, SecondaryHeading };
+  export { PrimaryHeading, SecondaryHeading, CountsHeading };
