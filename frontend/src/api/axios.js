@@ -1,32 +1,16 @@
 import axios from "axios";
 
 export const axiosInstance = axios.create({
-  baseURL: process.env.APP_BASE_URL,
+  baseURL: "http://localhost:5000/api",
   headers: {
     "Content-Type": "application/json",
   },
 });
 
 axiosInstance.interceptors.request.use((config) => {
-  config.headers.Authorization = `Bearer ${
-    JSON.parse(localStorage.getItem("user"))?.token
-  }`;
+  const user = JSON.parse(localStorage.getItem("user"));
+  if (user && user.token) {
+    config.headers.Authorization = `Bearer ${user.token}`;
+  }
   return config;
 });
-
-export const apiRequest = async (request) => {
-  const response = await request()
-    .then((res) => ({
-      ...res.data,
-      success: true,
-    }))
-    .catch((error) => {
-      const message = error.response.data.message;
-      return {
-        ...error.response,
-        success: false,
-        message: message,
-      };
-    });
-  return response;
-};

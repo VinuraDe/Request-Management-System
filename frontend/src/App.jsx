@@ -1,13 +1,15 @@
+import { BrowserRouter } from 'react-router-dom'
 import Counts from './components/molecules/Counts'
+import NavBar from './components/organism/NavBar'
 import RequestPage from './components/pages/RequestsPage'
 
 function App() {
 
   return (
-    <>
-      <RequestPage/>
-      
-    </>
+   <BrowserRouter>
+      <NavBar/>
+      <RequestPage />
+    </BrowserRouter>
   )
 }
 

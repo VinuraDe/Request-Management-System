@@ -3,11 +3,10 @@ const Request = require("../models/request");
 const getRequests = async (req, res) => {
   try {
     const requests = await Request.find();
-    res.json(requests);
-    console.log('Requests retrieved successfully');
+    res.json({ success: true, data: requests });
   } catch (error) {
     console.error(error.message);
-    res.status(500).send('Server Error');
+    res.status(500).send({ success: false, message: 'Server Error' });
   }
 };
 
