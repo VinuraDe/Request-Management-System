@@ -29,3 +29,4 @@ function Dropdown() {
     </Menu>
   )
 }
+export default Dropdown
